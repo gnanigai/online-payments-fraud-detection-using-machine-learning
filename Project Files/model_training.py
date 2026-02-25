@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 
 # Load dataset
-df = pd.read_csv("dataset_log.csv")
+df = pd.read_csv("payment.csv")
 
 # Drop unnecessary columns
 df.drop(["nameOrig", "nameDest", "isFlaggedFraud", "step"], axis=1, inplace=True)
@@ -28,5 +28,6 @@ model.fit(X_train, y_train)
 # Save model
 pickle.dump(model, open("../flask/payments.pkl", "wb"))
 pickle.dump(model, open("payments.pkl", "wb"))
+
 
 print("Model saved successfully as payments.pkl")
